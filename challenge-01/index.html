@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Challenge 01</title>
+</head>
+<body class="bg-[#1b2533] min-h-screen flex items-center justify-center p-4">
+    <div id="app" class="flex flex-col items-center text-center max-w-sm">
+        <span class="text-6xl mb-6">{{ emoji }}</span>
+        
+        <!-- Código de error (404) -->
+        <h1 class="text-white text-7xl font-extrabold tracking-tight mb-4">{{ error_code }}</h1>
+        
+        <!-- Mensaje descriptivo -->
+        <p class="text-gray-300 text-sm leading-relaxed mb-8 px-2">{{ message }}</p>
+        
+        <!-- Botón -->
+        <a href="#" class="bg-white text-slate-900 font-bold py-2.5 px-5 rounded-lg hover:bg-gray-200 transition-colors inline-block text-sm">
+            {{ button_text }}
+        </a>
+    </div>
+
+    <script>
+        const { createApp, ref } = Vue;
+        const app = createApp({
+            setup() {
+                const emoji = ref('😬');
+                const error_code = ref('404');
+                const message = ref("Oops! Looks like you've wandered into the digital wilderness. Don't worry, even the best explorers get lost sometimes.");
+                const button_text = ref('Go back to safety →');
+                return { emoji, error_code, message, button_text };
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+</html>

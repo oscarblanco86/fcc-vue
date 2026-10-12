@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>First Vue App</title>
+</head>
+<body class="bg-white text-gray-900 flex items-center justify-center min-h-screen">
+    <div id="app" class="flex flex-col items-center justify-between min-h-screen py-10">
+        <div></div>
+        <main class="text-center flex flex-col items-center">
+            <span class="text-6xl mb-4 leading-none">{{ emoji }}</span>
+            <h1 class="text-4xl font-extrabold tracking-tight mb-2">Hello, {{ name }}!</h1>
+            <p class="text-xl font-medium text-gray-800">
+                I'm about to learn <span class="text-emerald-500 underline font-semibold">Vue.js</span>!
+            </p>
+        </main>
+        <footer class="text-center">
+            <p class="text-gray-900 font-bold text-lg">&copy; {{ year }}</p>
+        </footer>
+    </div>
+
+    <script>
+        const { createApp, ref } = Vue;
+        const app = createApp({
+            setup() {
+                const name = ref('Oscar');
+                const emoji = ref('😎');
+                const year = ref('2026');
+                return {
+                    name,
+                    emoji,
+                    year
+                };
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+</html>
